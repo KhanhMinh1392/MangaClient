@@ -1,0 +1,11 @@
+.banner {
+    height: 500px;
+    color: "#fff";
+    line-height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.search{
+    width: 300px;
+}
