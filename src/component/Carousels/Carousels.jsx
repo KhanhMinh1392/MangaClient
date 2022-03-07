@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "antd";
-import './Banner.css'
+import './Carousels.css'
 
 export default function Banner() {
   const images = [

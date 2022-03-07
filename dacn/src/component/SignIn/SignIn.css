@@ -1,9 +1,0 @@
-.btn-sign--up{
-    margin-left: 10px;
-    background-color: red;
-    border: none;
-}
-.btn-sign--up:hover {
-    opacity: 0.5;
-    background-color: red;
-}

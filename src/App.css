@@ -7,8 +7,9 @@ body {
 
 .container-fluid {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1300px;
   padding: 0 15px;
+  width: 100%;
 }
 
 .ant-layout {
