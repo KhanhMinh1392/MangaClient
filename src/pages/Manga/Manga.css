@@ -1,0 +1,56 @@
+.manga {
+  background: white;
+  overflow: hidden;
+}
+.manga-body {
+  background: #f0f2f5;
+  padding-bottom: 40px;
+  width: 100%;
+  box-shadow: 0 0 5px 0px var(--color-box-shadow);
+}
+.manga .title {
+  word-wrap: break-word;
+}
+.title {
+  margin-left: 30px;
+}
+.manga .title .author {
+  margin-top: 5px;
+}
+.manga .title .author .link {
+  margin-left: 5px;
+}
+.manga .title .genre {
+  margin: 5px 0px;
+  word-wrap: break-word;
+}
+
+.manga .title .genre .link {
+  padding: 3px 5px;
+  margin: 2px 5px 2px 0px;
+  cursor: pointer;
+}
+
+.manga .title .interact {
+  margin-top: 35px;
+}
+.manga .title .interact .btn-read-now {
+  background-color: #3af;
+}
+
+.manga .title .interact .btn-add-favorite {
+  background-color: #ff9d11;
+}
+.manga .title .interact .btn-add-favorite,
+.manga .title .interact .btn-read-now {
+  margin-right: 15px;
+  border-radius: 15px;
+  height: 48px;
+  min-width: 150px;
+  color: white;
+  font-size: 16px;
+}
+.manga .middle {
+  background: #f0f2f5;
+  margin-top: 50px;
+}

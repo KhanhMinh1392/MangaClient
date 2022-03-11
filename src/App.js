@@ -1,25 +1,29 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Layout } from "antd";
 
-import Carousels from "./component/Carousels/Carousels";
+import Carousels from "./component/Carousels/Horizontal/Horizontal";
 import routes from "./component/Routes/routes";
 import Navbar from "./component/Navbar/Navbar";
 
 import "./App.css";
 import "antd/dist/antd.css";
 import { Suspense } from "react";
-const { Header, Content } = Layout;
+import LoadingPage from "./component/Loading/LoadingPage/LoadingPage";
+import FooterContainer from "./component/Footer/FooterContainer";
+const { Header, Content, Footer } = Layout;
 
 const Routing = () => {
   return (
     <Switch>
       {routes.map((route, i) => {
-        <Route
-          key={i}
-          path={route.path}
-          component={route.component}
-          exact={route.exact}
-        />;
+        return (
+          <Route
+            key={i}
+            path={route.path}
+            component={route.component}
+            exact={route.exact}
+          />
+        );
       })}
     </Switch>
   );
@@ -27,17 +31,17 @@ const Routing = () => {
 
 function App() {
   return (
-    <Suspense>
+    <Suspense fallback={<LoadingPage />}>
       <Router>
-        <Layout className="mainLayout">
+        <Layout className="mainLayout" style={{ minHeight: "100vh" }}>
           <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
             <Navbar />
-            <Carousels />
           </Header>
-          <Content style={{ padding: '0 50px',marginTop: "600px" }}>
-            <div style={{color: "black"}}>Hello</div>
-            {Routing()}
-            </Content>
+          <Carousels />
+          <Content style={{ padding: "0 50px" }}>{Routing()}</Content>
+          <Footer>
+            {/* <FooterContainer /> */}
+          </Footer>
         </Layout>
       </Router>
     </Suspense>

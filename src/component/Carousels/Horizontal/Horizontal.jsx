@@ -1,8 +1,8 @@
 import React from "react";
 import { Carousel } from "antd";
-import './Carousels.css'
+import './Horizontal.css'
 
-export default function Banner() {
+export default function Horizontal() {
   const images = [
     "https://pbs.twimg.com/media/Eljq4M_WoAAWHQp?format=jpg&name=large",
     "https://cuongphim.com/wp-content/uploads/2016/12/naruto-dattebayo-session-1-1.jpg",
@@ -11,7 +11,7 @@ export default function Banner() {
   ]
   return (
     <div className="main">
-      <Carousel autoplay>
+      <Carousel autoplay dots={false}>
         {
           images.map((image,index) => (
           <div key={index}>

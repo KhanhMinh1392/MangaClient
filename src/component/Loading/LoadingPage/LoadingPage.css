@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
+ul.loading-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 60px;
+  height: 60px;
+}
+
+ul.loading-page li {
+  list-style: none;
+  float: left;
+  width: calc(100% / 3);
+  height: calc(100% / 3);
+  background: #262626;
+  animation: animate 0.9s infinite linear;
+  background: rgb(0 0 0 / 67%);
+}
+
+ul.loading-page li:nth-child(1) {
+  animation-delay: 0s;
+}
+
+ul.loading-page li:nth-child(2),
+ul.loading-page li:nth-child(4) {
+  animation-delay: 0.1s;
+}
+
+ul.loading-page li:nth-child(3),
+ul.loading-page li:nth-child(5),
+ul.loading-page li:nth-child(7) {
+  animation-delay: 0.2s;
+}
+
+ul.loading-page li:nth-child(6),
+ul.loading-page li:nth-child(8) {
+  animation-delay: 0.3s;
+}
+
+ul.loading-page li:nth-child(9) {
+  animation-delay: 0.4s;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -11,6 +11,11 @@ const routes = [
     component: React.lazy(() => import("../../pages/Genres/Genres")),
     exact: true,
   },
+  {
+    path: "/manga",
+    component: React.lazy(() => import("../../pages/Manga/Manga")),
+    exact: true,
+  },
 ];
 
 export default routes;

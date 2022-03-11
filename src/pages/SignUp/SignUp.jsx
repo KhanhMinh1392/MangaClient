@@ -1,29 +1,33 @@
-import { LoginOutlined, LogoutOutlined } from '@ant-design/icons';
-import { Form, Input, Button, Checkbox , Modal } from 'antd';
+import { LoginOutlined, LogoutOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Checkbox, Modal, message } from "antd";
 import React, { memo, useState } from "react";
 
- function SignIn({setShow}) {
+function SignUp({ setShowSignUp }) {
   const [isModalVisible, setIsModalVisible] = useState(true);
 
   const handleCancel = () => {
     setIsModalVisible(false);
-    setShow(false);
+    setShowSignUp(false);
+  };
+  const handleSubmit = () => {
+    // message.success('Register success')
+    // setIsModalVisible(false);
   };
 
   const onFinish = (values) => {
-    console.log('Success:', values);
+    console.log("Success:", values);
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
 
   return (
     <Modal
-      title="MangaSMS Sign In"
+      title="MangaSMS Sign Up"
       visible={isModalVisible}
       onCancel={handleCancel}
-      footer= {false}
+      footer={false}
     >
       <Form
         name="basic"
@@ -59,10 +63,21 @@ import React, { memo, useState } from "react";
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" icon={<LoginOutlined />} htmlType="submit">
-            Sign in
+          <Button
+            type="primary"
+            icon={<LoginOutlined />}
+            htmlType="submit"
+            onClick={handleSubmit}
+          >
+            Register
           </Button>
-          <Button type="primary" icon={<LogoutOutlined/>} danger style={{marginLeft: "10px"}} onClick={handleCancel}>
+          <Button
+            type="primary"
+            icon={<LogoutOutlined />}
+            danger
+            style={{ marginLeft: "10px" }}
+            onClick={handleCancel}
+          >
             Cancel
           </Button>
         </Form.Item>
@@ -70,4 +85,4 @@ import React, { memo, useState } from "react";
     </Modal>
   );
 }
-export default memo(SignIn)
+export default memo(SignUp);
