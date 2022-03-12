@@ -1,0 +1,42 @@
+.fading-text .expand-btn {
+  width: 100%;
+  background-color: red;
+}
+
+.fading-text .btn {
+  cursor: pointer;
+  width: 65px;
+  display: block;
+  padding: 5px 0;
+  margin: 5px 0 20px 0;
+  border-radius: 3px;
+  color: black;
+  font-size: 1rem;
+  border: none;
+  float: right;
+}
+
+.fading-text .text,
+.fading-text .text.text.expanded {
+}
+
+.fading-text .text {
+  position: relative;
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.fading-text .text.expanded {
+  max-height: 100vh;
+}
+
+.fading-text .text:not(.expanded)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgb(240 242 245 / 0%), rgb(240 242 245));
+}

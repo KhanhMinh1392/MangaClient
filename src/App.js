@@ -39,8 +39,8 @@ function App() {
           </Header>
           <Carousels />
           <Content style={{ padding: "0 50px" }}>{Routing()}</Content>
-          <Footer>
-            {/* <FooterContainer /> */}
+          <Footer className="footer">
+            <FooterContainer />
           </Footer>
         </Layout>
       </Router>

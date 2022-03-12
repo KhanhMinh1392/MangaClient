@@ -57,10 +57,11 @@ export default function Vertical() {
     <div>
       <Slider {...settings}>
         {data.map((items, index) => (
-          <Row gutter={8}>
+          <Row gutter={8} key={index}>
             <Col span={8}>
               <Card
                 hoverable
+                
                 style={{ width: 240 , height: 100 }}
                 cover={<Image src={items.image} />}
               >

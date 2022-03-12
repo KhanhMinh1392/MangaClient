@@ -23,7 +23,7 @@ export default function Home() {
             <Divider orientation="left" style={{ borderTopColor: "#a2a2a2" }}>
               <h2>Featured Manga</h2>
             </Divider>
-            <ListGenres/>
+            <ListGenres height={"300px"}/>
           </div>
         </Col>
 
@@ -34,7 +34,7 @@ export default function Home() {
           <PopularManga/>
         </Col>
       </Row>
-      <BackUp />
+      <BackUp zIndex="99" />
     </>
   );
 }

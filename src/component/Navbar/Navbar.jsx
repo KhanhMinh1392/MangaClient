@@ -1,10 +1,8 @@
+import { Col, Input, Menu, Row } from "antd";
 import React, { useState } from "react";
-import { Menu, Input} from "antd";
-import { Row, Col } from "antd";
-
+import { NavLink } from "react-router-dom";
 import SignIn from "../../pages/SignIn/SignIn";
 import SignUp from "../../pages/SignUp/SignUp";
-import { NavLink } from "react-router-dom";
 
 const { SubMenu } = Menu;
 const { Search } = Input;

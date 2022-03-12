@@ -1,7 +1,7 @@
 import React from "react";
 import { List, Card, Typography } from "antd";
 import "./ListGenres.css";
-export default function ListGenres() {
+export default function ListGenres({height}) {
   const data = [
     {
       id: 1,
@@ -62,7 +62,7 @@ export default function ListGenres() {
         renderItem={(item) => (
           <List.Item>
             <Card
-              style={{ minHeight: "350px" }}
+              style={{ minHeight: height ? height : '350px' }}
               size="small"
               hoverable
               cover={<img src={item.image} />}

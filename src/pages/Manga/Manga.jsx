@@ -1,8 +1,13 @@
-import { Row, Col, Image, Button, Typography, Rate } from "antd";
+import { Row, Col, Image, Button, Typography, Rate, Tag, Divider } from "antd";
 import React from "react";
+import FadingText from "../../component/FadingText/FadingText";
+import ListChapter from "../../component/List/ListChapter/ListChapter";
 import "./Manga.css";
 export default function Manga() {
-  return (
+  const description =
+    "HELLO HELLO HELLO HELLO HELLO HELLOHELLOHELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO";
+
+    return (
     <>
       <div className="manga">
         <Row justify={"center"}>
@@ -24,31 +29,28 @@ export default function Manga() {
               </Col>
               <Col md={13} lg={12} sm={4} xs={20} xxl={15} className="title">
                 <div className="name">
-                  <Typography.Title level={2}>I’ve Gone Viral Thanks to My Crush </Typography.Title>
+                  <Typography.Title level={2}>
+                    I’ve Gone Viral Thanks to My Crush{" "}
+                  </Typography.Title>
                 </div>
 
-                <div className="author">
-                  Author: Hello
-              
-                </div>
-                <div className="trans_group">
-                  Translated by: tui
-        
-                </div>
+                <div className="author">Author: Hello</div>
+                <div className="trans_group">Translated by: tui</div>
 
                 <div className="genre">
-                  Thể loại
+                  Thể loại:
+                  <div className="tag">
+                    <Tag color="#f50">Humor</Tag>
+                    <Tag color="#2db7f5">Horror</Tag>
+                    <Tag color="#87d068">Superhero</Tag>
+                    <Tag color="#108ee9">Slice-of-Life</Tag>
+                  </div>
                 </div>
                 <div className="status">
-                  <Typography.Text   
-                  >
-                    On going
-                  </Typography.Text>
+                  <Typography.Text>On going</Typography.Text>
                 </div>
 
-                <div className="manga-rating">
-                  
-                </div>
+                <div className="manga-rating"></div>
 
                 <div className="manga-views">
                   <Typography.Text>12000 </Typography.Text>
@@ -66,20 +68,20 @@ export default function Manga() {
                   </Button>
 
                   <Button
-                  // type="primary"
-                  className="btn-add-favorite"
-                  // title="Add to Library"
-                  // loading={isLoading}
-                  // onClick={() =>
-                  //   userState[0]
-                  //     ? isFollowed
-                  //       ? removeFollowingManga(manga.manga_id)
-                  //       : addToFollowingManga(manga.manga_id)
-                  //     : message_error("You have to login first!")
-                  // }
+                    // type="primary"
+                    className="btn-add-favorite"
+                    // title="Add to Library"
+                    // loading={isLoading}
+                    // onClick={() =>
+                    //   userState[0]
+                    //     ? isFollowed
+                    //       ? removeFollowingManga(manga.manga_id)
+                    //       : addToFollowingManga(manga.manga_id)
+                    //     : message_error("You have to login first!")
+                    // }
                   >
                     {/* {isFollowed ? "Remove from Library" : "Add to Library"} */}
-                    Đọc
+                    Add to Library
                   </Button>
                 </div>
               </Col>
@@ -88,12 +90,17 @@ export default function Manga() {
             <Row justify={"center"} className="middle">
               <Col span={24} md={22} lg={23} xxl={22} className="desc-wrapper">
                 <div className="desc">
-                  <h2>Description</h2>
+                  <Divider orientation="left">
+                    <h2>Description</h2>
+                  </Divider>
+                  <FadingText content={description} />
                 </div>
               </Col>
               <Col span={24} md={22} lg={23} xxl={22} className="chapter-list">
-                <h3>Chapters</h3>
-                <div className="line"></div>
+                <Divider orientation="left">
+                  <h2>Chapters</h2>
+                </Divider>
+                <ListChapter />
 
                 {/* <ListChapters
                   // chapters={chapters}

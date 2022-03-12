@@ -4,7 +4,13 @@ import React, { memo, useState } from "react";
 
  function SignIn({setShow}) {
   const [isModalVisible, setIsModalVisible] = useState(true);
-
+  
+  const [username , setUsername] = useState('');
+  const [password , setPassword] = useState('');
+  
+  const handleSubmit = () => {
+    console.log(username, password);
+  }
   const handleCancel = () => {
     setIsModalVisible(false);
     setShow(false);
@@ -39,7 +45,7 @@ import React, { memo, useState } from "react";
           name="username"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <Input />
+          <Input onChange={(e) => setUsername(e.target.value)}/>
         </Form.Item>
 
         <Form.Item
@@ -47,7 +53,7 @@ import React, { memo, useState } from "react";
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password />
+          <Input.Password onChange={(e) => setPassword(e.target.value)}/>
         </Form.Item>
 
         <Form.Item
@@ -59,7 +65,7 @@ import React, { memo, useState } from "react";
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" icon={<LoginOutlined />} htmlType="submit">
+          <Button type="primary" icon={<LoginOutlined />} htmlType="submit" onClick={handleSubmit}>
             Sign in
           </Button>
           <Button type="primary" icon={<LogoutOutlined/>} danger style={{marginLeft: "10px"}} onClick={handleCancel}>

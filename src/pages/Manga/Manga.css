@@ -54,3 +54,10 @@
   background: #f0f2f5;
   margin-top: 50px;
 }
+.thumbnail-img{
+  width: 250px;
+}
+.tag {
+  margin-left: 10px;
+  display: inline-block;
+}
