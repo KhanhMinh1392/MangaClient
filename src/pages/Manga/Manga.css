@@ -14,8 +14,13 @@
 .title {
   margin-left: 30px;
 }
-.manga .title .author {
+.manga .title .author,
+.manga .title .trans_group,
+.manga .title .status,
+.manga .title .manga-views,
+.manga .title .genre{
   margin-top: 5px;
+  font-size: 16px;
 }
 .manga .title .author .link {
   margin-left: 5px;
@@ -60,4 +65,10 @@
 .tag {
   margin-left: 10px;
   display: inline-block;
+}
+.details-comic{
+  line-height: 25px;
+}
+.manga-body-row{
+  margin: 20px 0;
 }

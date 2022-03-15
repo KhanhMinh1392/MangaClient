@@ -44,7 +44,7 @@ function Navbar() {
               enterButton
             />
           </Col>
-          <Col span={6} offset={4}>
+          <Col span={6} offset={3}>
             <Menu className="menu" mode="horizontal">
               <Menu.Item key="sign-in" onClick={(e) => setShow(true)}>Sign in</Menu.Item>
               <Menu.Item key="sign-up"onClick={(e) => setShowSignUp(true)}>

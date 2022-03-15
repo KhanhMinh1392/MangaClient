@@ -1,5 +1,5 @@
-import React from "react";
-import { Col, Row, Divider, Typography, Space } from "antd";
+import { Button, Col, Row, Space, Typography } from "antd";
+import React, { useEffect, useState } from "react";
 import BackUp from "../../component/BackUp/BackUp";
 import ListGenres from "../../component/List/ListGenres/ListGenres";
 
@@ -19,7 +19,6 @@ export default function Genres() {
       name: "Historical",
     },
   ];
-
   return (
     <>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{ padding: 20 }}>
@@ -31,13 +30,18 @@ export default function Genres() {
         <Col flex="auto">
           {data.map((item, index) => (
             <Space direction="vertical" key={index}>
-              <Link to="/" target="_blank" style={{marginRight: "20px"}}>
+              <Link
+                target="_blank"
+                style={
+                  { marginRight: "20px" }
+                }
+              >
                 {item.name}
               </Link>
             </Space>
           ))}
         </Col>
-        <ListGenres />
+        <ListGenres/>
       </Row>
       <BackUp />
     </>

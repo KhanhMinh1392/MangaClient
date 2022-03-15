@@ -1,14 +1,13 @@
 import React from "react";
 import Slider from "react-slick";
 import { Card, Typography, Image, Col, Row, Tooltip } from "antd";
-import "./Vertical.css";
+import "./ListVer.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { NavLink } from "react-router-dom";
 
 const { Meta } = Card;
 
-export default function Vertical() {
+export default function ListVer() {
   const data = [
     {
       id: 1,
@@ -40,41 +39,56 @@ export default function Vertical() {
       image:
         "https://img.dtruyen.com/public/images/medium/nhabaotangtranyeu4yJQBun.jpg",
     },
+    {
+      id: 6,
+      name: "Cô dâu bị đánh tráo",
+      image:
+        "https://img.dtruyen.com/public/images/medium/voyeukhochieutongtaisungvongotngaoU18tqiH.jpg",
+    },
+    {
+      id: 6,
+      name: "Cô dâu bị đánh tráo",
+      image:
+        "https://img.dtruyen.com/public/images/medium/voyeukhochieutongtaisungvongotngaoU18tqiH.jpg",
+    },
+    {
+      id: 6,
+      name: "Cô dâu bị đánh tráo",
+      image:
+        "https://img.dtruyen.com/public/images/medium/voyeukhochieutongtaisungvongotngaoU18tqiH.jpg",
+    },
   ];
 
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToShow: 6,
+    slidesToScroll: 2,
     autoplay: true,
     speed: 2000,
     dots: false,
     autoplaySpeed: 2000,
     cssEase: "linear",
   };
-
   return (
-    <div>
+    <div className="site-card-wrapper">
       <Slider {...settings}>
         {data.map((items, index) => (
-          <Row gutter={8} key={index}>
+          <Row gutter={16} key={index}>
             <Col span={8}>
               <Card
                 hoverable
-                style={{ width: 240, height: 100 }}
+                style={{ width: 200, height: 100 }}
                 cover={<Image src={items.image} />}
               >
-                <NavLink to="/manga">
-                  <Meta
-                    title={
-                      <Tooltip placement="bottom" title={items.name}>
-                        <Typography.Text>{items.name}</Typography.Text>
-                      </Tooltip>
-                    }
-                    description="Chương 11"
-                  />
-                </NavLink>
+                <Meta
+                  title={
+                    <Tooltip placement="bottom" title={items.name}>
+                      <Typography.Text>{items.name}</Typography.Text>
+                    </Tooltip>
+                  }
+                  description="Chương 11"
+                />
               </Card>
             </Col>
           </Row>

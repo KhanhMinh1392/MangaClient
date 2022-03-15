@@ -1,13 +1,14 @@
-import { Row, Col, Image, Button, Typography, Rate, Tag, Divider } from "antd";
+import { Button, Col, Divider, Image, Row, Tag, Typography } from "antd";
 import React from "react";
 import FadingText from "../../component/FadingText/FadingText";
 import ListChapter from "../../component/List/ListChapter/ListChapter";
+import ListVer from "../../component/List/ListVer2/ListVer";
 import "./Manga.css";
 export default function Manga() {
   const description =
-    "HELLO HELLO HELLO HELLO HELLO HELLOHELLOHELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO";
+    "To become my woman, He Qiaoyan, you must fulfill these three conditions: to like being pampered, to like being loved, and to like being taken good care of. You have fulfilled all the requirements, and all that's left is for you to be aware that you belong to me!";
 
-    return (
+  return (
     <>
       <div className="manga">
         <Row justify={"center"}>
@@ -15,7 +16,6 @@ export default function Manga() {
             <div className="manga-bg-img"></div>
           </div>
         </Row>
-
         <Row justify={"center"} className="manga-body-row">
           <Col span={23} md={17} xxl={19} className="manga-body">
             <Row justify={"center"} className="header">
@@ -28,61 +28,45 @@ export default function Manga() {
                 />
               </Col>
               <Col md={13} lg={12} sm={4} xs={20} xxl={15} className="title">
-                <div className="name">
-                  <Typography.Title level={2}>
-                    I’ve Gone Viral Thanks to My Crush{" "}
-                  </Typography.Title>
-                </div>
-
-                <div className="author">Author: Hello</div>
-                <div className="trans_group">Translated by: tui</div>
-
-                <div className="genre">
-                  Thể loại:
-                  <div className="tag">
-                    <Tag color="#f50">Humor</Tag>
-                    <Tag color="#2db7f5">Horror</Tag>
-                    <Tag color="#87d068">Superhero</Tag>
-                    <Tag color="#108ee9">Slice-of-Life</Tag>
+                <div className="details-comic">
+                  <div className="name">
+                    <Typography.Title level={2}>
+                      I’ve Gone Viral Thanks to My Crush{" "}
+                    </Typography.Title>
                   </div>
-                </div>
-                <div className="status">
-                  <Typography.Text>On going</Typography.Text>
-                </div>
+                  {/* <div className="manga-rating"><Rate count={5} /></div> */}
+                  <div className="author">Author: Ake Culture</div>
+                  <div className="trans_group">Translated by: Khanh Minh</div>
+                  <div className="genre">
+                    Thể loại:
+                    <div className="tag">
+                      <Tag color="#f50">Humor</Tag>
+                      <Tag color="#2db7f5">Horror</Tag>
+                      <Tag color="#87d068">Superhero</Tag>
+                      <Tag color="#108ee9">Slice-of-Life</Tag>
+                    </div>
+                  </div>
+                  <div className="status">
+                    <Typography.Text>On going</Typography.Text>
+                  </div>
 
-                <div className="manga-rating"></div>
+                  <div className="manga-views">
+                    <Typography.Text>Views: 12000 </Typography.Text>
+                  </div>
 
-                <div className="manga-views">
-                  <Typography.Text>12000 </Typography.Text>
-                </div>
-
-                <div className="interact">
-                  <Button className="btn-read-now" title="Read Now">
-                    {/* <NavLink
+                  <div className="interact">
+                    <Button className="btn-read-now" title="Read Now">
+                      {/* <NavLink
                       to={`/chapter/${manga.manga_id}/${chapterId01}`}
                       style={{ marginLeft: 0 }}
                     >
                       Read Now
                     </NavLink> */}
-                    Read Now
-                  </Button>
+                      Read Now
+                    </Button>
 
-                  <Button
-                    // type="primary"
-                    className="btn-add-favorite"
-                    // title="Add to Library"
-                    // loading={isLoading}
-                    // onClick={() =>
-                    //   userState[0]
-                    //     ? isFollowed
-                    //       ? removeFollowingManga(manga.manga_id)
-                    //       : addToFollowingManga(manga.manga_id)
-                    //     : message_error("You have to login first!")
-                    // }
-                  >
-                    {/* {isFollowed ? "Remove from Library" : "Add to Library"} */}
-                    Add to Library
-                  </Button>
+                    <Button className="btn-add-favorite">Add to Library</Button>
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -101,13 +85,6 @@ export default function Manga() {
                   <h2>Chapters</h2>
                 </Divider>
                 <ListChapter />
-
-                {/* <ListChapters
-                  // chapters={chapters}
-                  // mangaId={manga.manga_id}
-                  // height={"400px"}
-                  // addReadingHistory={(mangaId, chapterId) => addReadingHistory(mangaId, chapterId)}
-                /> */}
               </Col>
 
               <Col
@@ -117,34 +94,19 @@ export default function Manga() {
                 xxl={16}
                 className="manga-comments"
               >
-                {/* <Spacing /> */}
-                {/* <div className="comments">
-                  <h2>MangaClawers Comments</h2>
-                  <div className="comments-body">
-                    <CommentItems comments={comments} isEndCmts={isEndCmts} />
-                  </div>
-                </div> */}
               </Col>
-
-              <Col span={24} md={22} lg={23} xxl={6} className="rank-list">
-                {/* <div className="top-week-rank">
-                  <h3>Weekly Manga Ranking</h3>
-
-                  <ListSide mangas={weeklyMangas} height={"415px"} />
-                </div>
-                <div className="favorite-suggest">
-                  <h3>You may also like</h3>
-
-                  <ListSide mangas={suggestionList} height={"415px"} />
-                </div> */}
-              </Col>
-
-              {/* <Col span={24} md={17} xl={17} xxl={22} className="home-footer">
-                            <FooterContainer />
-                        </Col> */}
             </Row>
           </Col>
         </Row>
+        <Row>
+          <Col xs={{ span: 24, offset: 1 }} lg={{ span: 24, offset: 1 }}>
+            <Divider orientation="left">
+              <h2>Feature</h2>
+            </Divider>
+            <ListVer />
+          </Col>
+        </Row>
+        ,
       </div>
     </>
   );

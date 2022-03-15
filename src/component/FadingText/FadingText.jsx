@@ -8,7 +8,7 @@ export default function FadingText({ content }) {
   return (
     <section className="fading-text">
       <div className={isExpand ? "text expanded" : "text"}>
-        <q>{content}</q>
+        <p>{content}</p>
       </div>
       <NavLink to="#" className="btn" onClick={() => setIsExpand(!isExpand)}>
         More <DownOutlined style={{ fontSize: "14px" }} />

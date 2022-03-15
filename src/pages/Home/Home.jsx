@@ -32,7 +32,7 @@ export default function Home() {
             <h2>Popular Manga</h2>
           </Divider>
           <PopularManga/>
-        </Col>
+        </Col>s
       </Row>
       <BackUp zIndex="99" />
     </>

@@ -45,6 +45,78 @@ export default function ListGenres({height}) {
       image:
         "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
     },
+    {
+      id: 8,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 9,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 10,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 11,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 12,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 13,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 14,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 15,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 16,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 17,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 18,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
+    {
+      id: 19,
+      name: "Võ Sĩ Quyền Anh",
+      image:
+        "http://i.truyenvua.com/ebook/190x247/vo-si_1593141783.jpg?r=r8645456",
+    },
   ];
   return (
     <div className="list-comics">
@@ -58,6 +130,7 @@ export default function ListGenres({height}) {
           xl: 6,
           xxl: 3,
         }}
+        pagination = {{pageSize: 12,defaultCurrent: 1, total: data.length}}
         dataSource={data}
         renderItem={(item) => (
           <List.Item>
@@ -73,7 +146,7 @@ export default function ListGenres({height}) {
             </Card>
           </List.Item>
         )}
-        pagination={{onChange: ()=>{}, pageSize: 12, defaultCurrent: 1, total: 10}}
+       
       />
     </div>
   );

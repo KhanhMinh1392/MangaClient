@@ -40,7 +40,7 @@ export default function FooterContainer() {
                 paddingRight: "10px",
               }}
             >
-              TERM
+              MongoDB
             </Typography.Text>
             <Typography.Text
               style={{
@@ -50,7 +50,7 @@ export default function FooterContainer() {
                 paddingRight: "10px",
               }}
             >
-              PRIVACY
+              ExpressJS
             </Typography.Text>
             <Typography.Text
               style={{
@@ -60,9 +60,9 @@ export default function FooterContainer() {
                 paddingRight: "10px",
               }}
             >
-              CCPA
+              ReactJS
             </Typography.Text>
-            <Typography.Text style={{ color: "white" }}>EEA</Typography.Text>
+            <Typography.Text style={{ color: "white" }}>NodeJS</Typography.Text>
           </Col>
           <Col className="gutter-row" span={6}>
             <Typography.Text style={{ display: "block", color: "white" }}>
