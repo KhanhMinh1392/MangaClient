@@ -9,7 +9,6 @@ import LoadingPage from "./component/Loading/LoadingPage/LoadingPage";
 import NavbarService from "./component/Navbar/NavbarService";
 import routes from "./component/Routes/routes";
 
-
 const { Header, Content, Footer } = Layout;
 
 const Routing = () => {
@@ -29,7 +28,6 @@ const Routing = () => {
   );
 };
 
-
 function App() {
   return (
     <Suspense fallback={<LoadingPage />}>
@@ -38,8 +36,10 @@ function App() {
           <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
             <NavbarService />
           </Header>
-          <Carousels />
-          <Content style={{ padding: "0 50px" }}>{Routing()}</Content>
+          <Content>
+            <Carousels />
+            <div style={{ padding: "0 50px" }}>{Routing()}</div>
+          </Content>
           <Footer className="footer">
             <FooterContainer />
           </Footer>
