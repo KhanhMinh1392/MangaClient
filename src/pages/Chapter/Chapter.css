@@ -1,0 +1,249 @@
+.chapter {
+  margin: auto;
+  background: #f0f2f5;
+  border-radius: 3px;
+}
+
+.chapter .title {
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.chapter .dropdown-chapter {
+  display: flex;
+  width: 100%;
+  z-index: 9;
+  position: relative;
+  margin-top: 10px;
+  height: 44px;
+  animation: moveUp 0.5s;
+}
+
+.chapter .dropdown-chapter.sticky {
+  animation: moveDown 0.5s ease-in-out;
+  position: fixed;
+  top: 3px;
+  margin-top: 0px;
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-3rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes moveUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.chapter .dropdown-chapter .dropdown-items {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  background-color: #e3e5e8;
+  padding: 5px 6px;
+  cursor: pointer;
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-item-chapter-page .dropdown-item-title .title-name {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
+  width: 100%;
+  padding: 6px 0px;
+}
+
+.dropdown-item-chapter-page .dropdown-item-title .title-time {
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40%;
+  width: 100%;
+}
+
+.chapter .dropdown-chapter .btn-prev,
+.chapter .dropdown-chapter .btn-next,
+.chapter .dropdown-chapter .btn-home,
+.chapter .dropdown-chapter .btn-add-favor {
+  background-color: #e3e5e8;
+  border: none;
+  height: auto;
+  box-shadow: none !important;
+  margin: 0 3px 0 3px;
+  padding: 3px 14px 0 14px;
+}
+
+.dropdown-item-chapter-page {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+.dropdown-item-chapter-page .dropdown-item-title {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 12px;
+}
+
+.chapter .chapter-pages {
+  text-align: center;
+}
+
+.chapter .chapter-pages .page {
+  max-width: 1100px;
+  height: auto;
+  margin: auto;
+}
+
+.chapter .chapter-pages img.img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+.chapter .chapter-pages .ant-image-mask {
+  margin-bottom: 20px;
+}
+.chapter .chapter-pages .ant-image-mask:hover {
+  opacity: 0;
+  cursor: default;
+}
+
+.chapter .chapter-footer {
+  margin-top: 50px;
+}
+
+.chapter-pages .skeleton-img h3.ant-skeleton-title {
+  margin: auto;
+  max-height: 500px;
+  max-width: 90vw;
+  width: 90% !important;
+  height: 500px;
+}
+
+/* dropdown menu */
+/* dropdown menu */
+.ant-dropdown.ant-dropdown-placement-bottomLeft {
+  width: 100%;
+  z-index: 999;
+  margin-top: 10px;
+  background: transparent;
+}
+
+ul.ant-dropdown-menu.ant-dropdown-menu-light.ant-dropdown-menu-root.ant-dropdown-menu-vertical {
+  width: 40%;
+  margin: 0 auto;
+  background: white;
+}
+
+.chapter .chapter-comment {
+  margin-bottom: 50px;
+}
+
+/* ///////////// */
+@media only screen and (min-width: 375px) and (max-width: 413px) {
+  .chapter .dropdown-chapter .dropdown-items {
+    font-size: 16px;
+  }
+
+  .chapter .dropdown-chapter .btn-prev,
+  .chapter .dropdown-chapter .btn-next,
+  .chapter .dropdown-chapter .btn-home,
+  .chapter .dropdown-chapter .btn-add-favor {
+    background-color: #e3e5e8;
+    border: none;
+    height: auto;
+    box-shadow: none !important;
+    margin: 0 5px;
+    padding: 0 10px;
+  }
+
+  .dropdown-item-chapter-page .dropdown-item-title {
+    font-size: 12px;
+  }
+
+  .dropdown-item-chapter-page .dropdown-item-title .title-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+  }
+
+  ul.ant-dropdown-menu.ant-dropdown-menu-light.ant-dropdown-menu-root.ant-dropdown-menu-vertical {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 389px) and (max-width: 767px) {
+  .name-chapter {
+    min-width: 100%;
+    font-size: 14px;
+  }
+  .chapter .dropdown-chapter .dropdown-items {
+    font-size: 16px;
+  }
+
+  .chapter .dropdown-chapter .btn-prev,
+  .chapter .dropdown-chapter .btn-next,
+  .chapter .dropdown-chapter .btn-home,
+  .chapter .dropdown-chapter .btn-add-favor {
+    background-color: #e3e5e8;
+    border: none;
+    height: auto;
+    box-shadow: none !important;
+    margin: 0 5px;
+    padding: 0 10px;
+  }
+
+  .dropdown-item-chapter-page .dropdown-item-title {
+    font-size: 14px;
+  }
+
+  .dropdown-item-chapter-page .dropdown-item-title .title-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+  }
+
+  ul.ant-dropdown-menu.ant-dropdown-menu-light.ant-dropdown-menu-root.ant-dropdown-menu-vertical {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  ul.ant-dropdown-menu.ant-dropdown-menu-light.ant-dropdown-mimgenu-root.ant-dropdown-menu-vertical {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  ul.ant-dropdown-menu.ant-dropdown-menu-light.ant-dropdown-menu-root.ant-dropdown-menu-vertical {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  ul.ant-dropdown-menu.ant-dropdown-menu-light.ant-dropdown-menu-root.ant-dropdown-menu-vertical,
+  .name-chapter {
+    min-width: 70%;
+  }
+}

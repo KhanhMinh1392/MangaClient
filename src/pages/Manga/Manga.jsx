@@ -1,16 +1,14 @@
-import { Button, Col, Divider, Image, Row, Tag, Typography } from "antd";
+import { Button, Col, Divider, Image, Rate, Row, Tag, Typography } from "antd";
 import React from "react";
+import { NavLink } from "react-router-dom";
 import FadingText from "../../component/FadingText/FadingText";
 import ListChapter from "../../component/List/ListChapter/ListChapter";
 import ListVer from "../../component/List/ListVer2/ListVer";
 import "./Manga.css";
-export default function Manga() {
-  const description =
-    "To become my woman, He Qiaoyan, you must fulfill these three conditions: to like being pampered, to like being loved, and to like being taken good care of. You have fulfilled all the requirements, and all that's left is for you to be aware that you belong to me!";
-
+export default function Manga( {manga,chapter} ) {
   return (
     <>
-      <div className="manga">
+      <div className="manga" key={manga._id}>
         <Row justify={"center"}>
           <div className="manga-bg">
             <div className="manga-bg-img"></div>
@@ -23,7 +21,7 @@ export default function Manga() {
                 <Image
                   preview={false}
                   className="thumbnail-img"
-                  src="http://i.truyenvua.com/ebook/190x247/duoi-bong-cay-soi_1625474458.jpg?r=r8645456"
+                  src={manga.image}
                   alt=""
                 />
               </Col>
@@ -31,12 +29,12 @@ export default function Manga() {
                 <div className="details-comic">
                   <div className="name">
                     <Typography.Title level={2}>
-                      I’ve Gone Viral Thanks to My Crush{" "}
+                      {manga.name_comic}
                     </Typography.Title>
                   </div>
-                  {/* <div className="manga-rating"><Rate count={5} /></div> */}
-                  <div className="author">Author: Ake Culture</div>
-                  <div className="trans_group">Translated by: Khanh Minh</div>
+                  <div className="manga-rating"><Rate count={5} defaultValue={manga.rating}/></div>
+                  <div className="author">Author: {manga.name_author}</div>
+                  <div className="trans_group">Translated by: {manga.translateBy}</div>
                   <div className="genre">
                     Thể loại:
                     <div className="tag">
@@ -47,22 +45,16 @@ export default function Manga() {
                     </div>
                   </div>
                   <div className="status">
-                    <Typography.Text>On going</Typography.Text>
+                    <Typography.Text>{manga.status}</Typography.Text>
                   </div>
 
                   <div className="manga-views">
                     <Typography.Text>Views: 12000 </Typography.Text>
                   </div>
-
+                 
                   <div className="interact">
                     <Button className="btn-read-now" title="Read Now">
-                      {/* <NavLink
-                      to={`/chapter/${manga.manga_id}/${chapterId01}`}
-                      style={{ marginLeft: 0 }}
-                    >
-                      Read Now
-                    </NavLink> */}
-                      Read Now
+                      <NavLink to={`/manga/${manga._id}/chapter`}>Read Now</NavLink>
                     </Button>
 
                     <Button className="btn-add-favorite">Add to Library</Button>
@@ -77,14 +69,14 @@ export default function Manga() {
                   <Divider orientation="left">
                     <h2>Description</h2>
                   </Divider>
-                  <FadingText content={description} />
+                  <FadingText content={manga.content} />
                 </div>
               </Col>
               <Col span={24} md={22} lg={23} xxl={22} className="chapter-list">
                 <Divider orientation="left">
                   <h2>Chapters</h2>
                 </Divider>
-                <ListChapter />
+                <ListChapter chapter={chapter} />
               </Col>
 
               <Col
@@ -93,8 +85,7 @@ export default function Manga() {
                 lg={23}
                 xxl={16}
                 className="manga-comments"
-              >
-              </Col>
+              ></Col>
             </Row>
           </Col>
         </Row>

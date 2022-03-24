@@ -2,22 +2,19 @@ import { LoginOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Form, Input, Button, Checkbox , Modal } from 'antd';
 import React, { memo, useState } from "react";
 
- function SignIn({setShow}) {
+ function SignIn({setShow , handleSignIn}) {
   const [isModalVisible, setIsModalVisible] = useState(true);
   
   const [username , setUsername] = useState('');
   const [password , setPassword] = useState('');
   
   const handleSubmit = () => {
-    console.log(username, password);
+    handleSignIn(username, password);
   }
+  
   const handleCancel = () => {
     setIsModalVisible(false);
     setShow(false);
-  };
-
-  const onFinish = (values) => {
-    console.log('Success:', values);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -36,7 +33,6 @@ import React, { memo, useState } from "react";
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
         initialValues={{ remember: true }}
-        onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
@@ -45,7 +41,7 @@ import React, { memo, useState } from "react";
           name="username"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <Input onChange={(e) => setUsername(e.target.value)}/>
+          <Input value={username} onChange={(e) => setUsername(e.target.value)}/>
         </Form.Item>
 
         <Form.Item
@@ -53,7 +49,7 @@ import React, { memo, useState } from "react";
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password onChange={(e) => setPassword(e.target.value)}/>
+          <Input.Password value={password} onChange={(e) => setPassword(e.target.value)}/>
         </Form.Item>
 
         <Form.Item

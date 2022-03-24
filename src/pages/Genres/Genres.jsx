@@ -1,5 +1,6 @@
 import { Button, Col, Row, Space, Typography } from "antd";
 import React, { useEffect, useState } from "react";
+import mangaApi from "../../api/apis/mangaApi";
 import BackUp from "../../component/BackUp/BackUp";
 import ListGenres from "../../component/List/ListGenres/ListGenres";
 
@@ -19,6 +20,19 @@ export default function Genres() {
       name: "Historical",
     },
   ];
+  const [manga, setManga] = useState([]);
+  const getManga = async () => {
+    try {
+      const response = await mangaApi.getTop();
+      setManga(response.comics);
+      return;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getManga();
+  }, []);
   return (
     <>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{ padding: 20 }}>
@@ -41,7 +55,7 @@ export default function Genres() {
             </Space>
           ))}
         </Col>
-        <ListGenres/>
+        <ListGenres manga={manga} width={180} />
       </Row>
       <BackUp />
     </>

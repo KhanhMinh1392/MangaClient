@@ -7,14 +7,15 @@ const axiosClient = axios.create({
     headers: {
         'content-type': 'application/json',
     },
-    paramsSerializer: params => queryString(stringify(params)),
+    paramsSerializer: params => queryString.stringify(params),
 })
 
 axiosClient.interceptors.request.use(async (config) => {
     // token
+    const token = localStorage.getItem('token');
+    config.headers.Authorization = token ? `Bearer ${token}` : '';
     return config;
 })
-
 axiosClient.interceptors.response.use((response) => {
     if(response && response.data) {
         return response.data;
