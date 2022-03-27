@@ -16,20 +16,21 @@ export default function Home() {
       return;
     } catch (error) {
       console.log(error);
-    }
+    } 
   };
   useEffect(() => {
     getManga();
   }, []);
   return (
     <>
+    
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         <Col className="gutter-row" span={18}>
           <div className="daily-manga">
             <Divider orientation="left" style={{ borderTopColor: "#a2a2a2" }}>
               <h2>Daily Manga</h2>
             </Divider>
-            <Vertical manga={manga} />
+            <Vertical manga={manga} height={308} />
           </div>
 
           <div>

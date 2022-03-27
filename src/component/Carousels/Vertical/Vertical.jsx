@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const { Meta } = Card;
 
-export default function Vertical({manga}) {
+export default function Vertical({manga,height}) {
   const settings = {
     dots: true,
     infinite: true,
@@ -29,7 +29,7 @@ export default function Vertical({manga}) {
               <Card
                 hoverable
                 style={{ width: 240, height: 100 }}
-                cover={<Image src={items.image} height={260}/>}
+                cover={<Image src={items.image} height={height ? height : 260  } />}
               >
                 <NavLink to={`/manga/${items._id}`}>
                   <Meta
@@ -38,7 +38,7 @@ export default function Vertical({manga}) {
                         <Typography.Text>{items.name_comic}</Typography.Text>
                       </Tooltip>
                     }
-                    description="Chương 11"
+                    description={items.year}
                   />
                 </NavLink>
               </Card>

@@ -15,17 +15,17 @@ export default function SignInService({ setShow }) {
           password: password,
         };
         const response = await authApi.postSignIn(data);
-        console.log(response);
-        if(response === 403) {
+        if(response.Http_status === "Error") {
           message_error(response.message);
+          return;
         }
 
         message_success(response.message);
         localStorage.setItem("token", response.token);
 
         setShow(false);
-        
         return;
+        
       } catch (error) {
         // console.log(error);
       }

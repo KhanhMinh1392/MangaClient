@@ -8,7 +8,7 @@ const routes = [
   },
   {
     path: "/genres",
-    component: React.lazy(() => import("../../pages/Genres/Genres")),
+    component: React.lazy(() => import("../../pages/Genres/GenresService")),
     exact: true,
   },
   {
@@ -19,6 +19,11 @@ const routes = [
   {
     path: "/manga/:id/chapter",
     component: React.lazy(() => import("../../pages/Chapter/Chapter")),
+    exact: true,
+  },
+  {
+    path: "/profile",
+    component: React.lazy(() => import("../../pages/Profile/ProfileService")),
     exact: true,
   },
   {

@@ -7,6 +7,7 @@ export default function MangaService() {
   const { id } = useParams();
   const [manga, setManga] = useState([]);
   const [chapter, setChapter] = useState([]);
+  const [genre, setGenre] = useState([]);
   const getManga = async () => {
     try {
       const params = {
@@ -17,7 +18,6 @@ export default function MangaService() {
 
       setManga(mangaObj);
       return;
-
     } catch (error) {}
   };
 
@@ -25,17 +25,26 @@ export default function MangaService() {
     try {
       const response = await mangaApi.getMangaChapters();
       const arr = response.chapters;
-      const getChapter = arr.filter(res => res.id_comic == id);
+      const getChapter = arr.filter((res) => res.id_comic == id);
       setChapter(getChapter);
       return;
-    }
-    catch (error) {}
-  }
+    } catch (error) {}
+  };
+
+  const getGenres = async () => {
+    try {
+      const response = await mangaApi.getGenres();
+      const arr = response.categories;
+      const getGenres = arr.filter((res) => res.comic_type == id);
+      setGenre(getGenres);
+      return;
+    } catch (error) {}
+  };
   useEffect(() => {
     getManga();
     getChapters();
+    getGenres();
   }, []);
 
-
-  return <Manga manga={manga} chapter={chapter} />;
+  return <Manga manga={manga} chapter={chapter} genre={genre} />;
 }

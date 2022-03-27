@@ -1,19 +1,40 @@
-import { AutoComplete, Col, Input, Menu, Row } from "antd";
+import { AutoComplete, Avatar, Col, Image, Input, List, Menu, Row } from "antd";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import SignInService from "../../pages/SignIn/SignInService";
 import SignUp from "../../pages/SignUp/SignUp";
+import SignUpService from "../../pages/SignUp/SignUpService";
 
 const { Search } = Input;
 const { SubMenu } = Menu;
 
-function Navbar() {
+function Navbar({ manga }) {
   const options = [
-    { value: 'Burns Bay Road' },
-    { value: 'Downing Street' },
-    { value: 'Wall Street' },
+    {
+      name: "Hello",
+      value: "Burns Bay Road",
+    },
+    {
+      name: "Hello",
+      value: "Burns Bay Road",
+    },
+    {
+      name: "Hello",
+      value: "Burns Bay Road",
+    },
+    {
+      name: "Hello",
+      value: "Burns Bay Road",
+    },
+    {
+      name: "Hello",
+      value: "Burns Bay Road",
+    },
+    {
+      name: "Hello",
+      value: "Burns Bay Road",
+    },
   ];
-
   const onSearch = (value) => console.log(value);
   const [show, setShow] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
@@ -21,21 +42,39 @@ function Navbar() {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    if(localStorage.getItem("token")) {
+    if (localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
     }
   }, [localStorage.getItem("token")]);
 
-  const RenderAccountDropDown = () => (
+  const renderSearchManga = () => (
     <>
-      <Menu.Item key="profile">Profile</Menu.Item>
-      <Menu.Item key="history">History</Menu.Item>
+      <List
+        itemLayout="horizontal"
+        dataSource={manga}
+        renderItem={(item) => (
+          <List.Item>
+            <List.Item.Meta
+              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+              title={<a href="https://ant.design">{item.name_comic}</a>}
+              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            />
+          </List.Item>
+        )}
+      />
+      ,
+    </>
+  );
+
+  const renderAccountDropDown = () => (
+    <>
+      <Menu.Item key="profile"><NavLink to='/profile'>Profile</NavLink></Menu.Item>
       <Menu.Item key="logOut">
         <NavLink
           to="/"
           onClick={() => {
             localStorage.removeItem("token");
-            setToken('');
+            setToken("");
           }}
         >
           Log out
@@ -65,10 +104,8 @@ function Navbar() {
             </Menu>
           </Col>
           <Col span={6}>
-            <AutoComplete
-            style={{ width: 300 }}
-            options={options}
-            >
+            <AutoComplete style={{ width: 300 }}
+            children={renderSearchManga()}>
               <Search
                 className="search"
                 placeholder="Search..."
@@ -88,7 +125,7 @@ function Navbar() {
                   <SubMenu
                     title="Account"
                     popupClassName="list-cccount-dropdown"
-                    children={RenderAccountDropDown()}
+                    children={renderAccountDropDown()}
                   />
                 </Menu>
               </>
@@ -108,7 +145,7 @@ function Navbar() {
         </div>
       </div>
       {show ? <SignInService setShow={setShow} /> : ""}
-      {showSignUp ? <SignUp setShowSignUp={setShowSignUp} /> : ""}
+      {showSignUp ? <SignUpService setShowSignUp={setShowSignUp} /> : ""}
     </Row>
   );
 }

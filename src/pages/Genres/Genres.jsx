@@ -1,38 +1,10 @@
-import { Button, Col, Row, Space, Typography } from "antd";
-import React, { useEffect, useState } from "react";
-import mangaApi from "../../api/apis/mangaApi";
+import { Col, Row, Space, Typography } from "antd";
+import React from "react";
 import BackUp from "../../component/BackUp/BackUp";
 import ListGenres from "../../component/List/ListGenres/ListGenres";
 
 const { Text, Link } = Typography;
-export default function Genres() {
-  const data = [
-    {
-      name: "Romance",
-    },
-    {
-      name: "Teen",
-    },
-    {
-      name: "Comedy",
-    },
-    {
-      name: "Historical",
-    },
-  ];
-  const [manga, setManga] = useState([]);
-  const getManga = async () => {
-    try {
-      const response = await mangaApi.getTop();
-      setManga(response.comics);
-      return;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getManga();
-  }, []);
+export default function Genres({genres , manga}) {
   return (
     <>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{ padding: 20 }}>
@@ -42,7 +14,7 @@ export default function Genres() {
           </Space>
         </Col>
         <Col flex="auto">
-          {data.map((item, index) => (
+          {genres.map((item, index) => (
             <Space direction="vertical" key={index}>
               <Link
                 target="_blank"
@@ -50,7 +22,7 @@ export default function Genres() {
                   { marginRight: "20px" }
                 }
               >
-                {item.name}
+                {item.name_cate}
               </Link>
             </Space>
           ))}

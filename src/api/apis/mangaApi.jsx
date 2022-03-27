@@ -12,6 +12,10 @@ const mangaApi = {
     getMangaChapters: () => {
         const url = '/chapter/chapters';
         return axiosClient.get(url);
+    },
+    getGenres: ()=> {
+        const url = '/cate/getGenres';
+        return axiosClient.get(url);
     }
     
 }

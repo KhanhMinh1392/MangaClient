@@ -2,16 +2,19 @@ import { LoginOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Form, Input, Button, Checkbox, Modal, message } from "antd";
 import React, { memo, useState } from "react";
 
-function SignUp({ setShowSignUp }) {
+function SignUp({ setShowSignUp , handleSignUp }) {
   const [isModalVisible, setIsModalVisible] = useState(true);
+  const [username,setUsername] = useState('');
+  const [password,setPassword] = useState('');
+  const [email,setEmail] = useState('');
+  const [phone,setPhone] = useState('');
 
   const handleCancel = () => {
     setIsModalVisible(false);
     setShowSignUp(false);
   };
   const handleSubmit = () => {
-    // message.success('Register success')
-    // setIsModalVisible(false);
+    handleSignUp(username,email,phone,password);
   };
 
   const onFinish = (values) => {
@@ -43,7 +46,23 @@ function SignUp({ setShowSignUp }) {
           name="username"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <Input />
+          <Input value={username} onChange={(e)=> setUsername(e.target.value)}/>
+        </Form.Item>
+
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[{ required: true, message: "Please input your email!" }]}
+        >
+          <Input value={email} onChange={(e)=> setEmail(e.target.value)} />
+        </Form.Item>
+
+        <Form.Item
+          label="Phone"
+          name="phone"
+          rules={[{ required: true, message: "Please input your phone!" }]}
+        >
+          <Input value={phone} onChange={(e)=> setPhone(e.target.value)} />
         </Form.Item>
 
         <Form.Item
@@ -51,7 +70,7 @@ function SignUp({ setShowSignUp }) {
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password />
+          <Input.Password value={password} onChange={(e)=>setPassword(e.target.value)}/>
         </Form.Item>
 
         <Form.Item
