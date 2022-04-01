@@ -1,45 +1,21 @@
-import { AutoComplete, Avatar, Col, Image, Input, List, Menu, Row } from "antd";
-import React, { useState, useEffect } from "react";
+import { AutoComplete, Col, Input, Menu, Row } from "antd";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import SignInService from "../../pages/SignIn/SignInService";
-import SignUp from "../../pages/SignUp/SignUp";
 import SignUpService from "../../pages/SignUp/SignUpService";
+import SearchNavBar from "../Feature/SearchNavBar";
+import "./Navbar.css";
 
 const { Search } = Input;
 const { SubMenu } = Menu;
+const Option = AutoComplete.Option;
 
 function Navbar({ manga }) {
-  const options = [
-    {
-      name: "Hello",
-      value: "Burns Bay Road",
-    },
-    {
-      name: "Hello",
-      value: "Burns Bay Road",
-    },
-    {
-      name: "Hello",
-      value: "Burns Bay Road",
-    },
-    {
-      name: "Hello",
-      value: "Burns Bay Road",
-    },
-    {
-      name: "Hello",
-      value: "Burns Bay Road",
-    },
-    {
-      name: "Hello",
-      value: "Burns Bay Road",
-    },
-  ];
-  const onSearch = (value) => console.log(value);
   const [show, setShow] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-
+  // const [search, setSearch] = useState();
   const [token, setToken] = useState("");
+
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -47,33 +23,19 @@ function Navbar({ manga }) {
     }
   }, [localStorage.getItem("token")]);
 
-  const renderSearchManga = () => (
-    <>
-      <List
-        itemLayout="horizontal"
-        dataSource={manga}
-        renderItem={(item) => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-              title={<a href="https://ant.design">{item.name_comic}</a>}
-              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-            />
-          </List.Item>
-        )}
-      />
-      ,
-    </>
-  );
+  
 
   const renderAccountDropDown = () => (
     <>
-      <Menu.Item key="profile"><NavLink to='/profile'>Profile</NavLink></Menu.Item>
+      <Menu.Item key="profile">
+        <NavLink to="/profile">Profile</NavLink>
+      </Menu.Item>
       <Menu.Item key="logOut">
         <NavLink
           to="/"
           onClick={() => {
             localStorage.removeItem("token");
+            localStorage.removeItem("id");
             setToken("");
           }}
         >
@@ -104,15 +66,7 @@ function Navbar({ manga }) {
             </Menu>
           </Col>
           <Col span={6}>
-            <AutoComplete style={{ width: 300 }}
-            children={renderSearchManga()}>
-              <Search
-                className="search"
-                placeholder="Search..."
-                onSearch={onSearch}
-                enterButton
-              />
-            </AutoComplete>
+            <SearchNavBar manga={manga} />
           </Col>
           <Col span={6} offset={3}>
             {token ? (

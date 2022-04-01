@@ -18,5 +18,6 @@ const mangaApi = {
         return axiosClient.get(url);
     }
     
+    
 }
 export default mangaApi

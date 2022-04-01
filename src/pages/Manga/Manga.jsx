@@ -1,12 +1,22 @@
 import { EyeOutlined } from "@ant-design/icons";
 import { Button, Col, Divider, Image, Rate, Row, Tag, Typography } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import FadingText from "../../component/FadingText/FadingText";
 import ListChapter from "../../component/List/ListChapter/ListChapter";
 import ListVer from "../../component/List/ListVer2/ListVer";
+import BackUp from "../../component/BackUp/BackUp";
 import "./Manga.css";
 export default function Manga({ manga, chapter, genre }) {
+  
+  const [chapterId01, setChapterId01] = useState("");
+
+  useEffect(()=> {
+    if (chapter[0]) {
+      setChapterId01(chapter[0]._id);
+    }
+  },[chapter])
+
   return (
     <>
       <div className="manga" key={manga._id}>
@@ -61,7 +71,7 @@ export default function Manga({ manga, chapter, genre }) {
 
                   <div className="interact">
                     <Button className="btn-read-now" title="Read Now">
-                      <NavLink to={`/manga/${manga._id}/chapter`}>
+                      <NavLink to={`/manga/${manga._id}/${chapterId01}`}>
                         Read Now
                       </NavLink>
                     </Button>
@@ -85,7 +95,7 @@ export default function Manga({ manga, chapter, genre }) {
                 <Divider orientation="left">
                   <h2>Chapters</h2>
                 </Divider>
-                <ListChapter chapter={chapter} />
+                <ListChapter chapter={chapter} manga={manga} />
               </Col>
 
               <Col
@@ -99,15 +109,16 @@ export default function Manga({ manga, chapter, genre }) {
           </Col>
         </Row>
         <Row>
-          <Col xs={{ span: 24, offset: 1 }} lg={{ span: 24, offset: 1 }}>
+          {/* <Col xs={{ span: 24, offset: 1 }} lg={{ span: 24, offset: 1 }}>
             <Divider orientation="left">
               <h2>Feature</h2>
             </Divider>
-            <ListVer />
-          </Col>
+            <ListVer dataManga={manga} />
+          </Col> */}
         </Row>
         ,
       </div>
+      <BackUp />
     </>
   );
 }

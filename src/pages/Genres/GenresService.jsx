@@ -23,8 +23,8 @@ export default function GenresService() {
   };
 
   useEffect(() => {
-    getGenres();
     getManga();
+    getGenres();
   }, []);
 
   return <Genres genres={genres} manga={manga} />;

@@ -1,0 +1,15 @@
+.options {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.options .name {
+    margin-left: 10px;
+}
+.img{
+    width: 50px;
+}
+.search-menu-item{
+    display: flex;
+    align-items: center;
+}

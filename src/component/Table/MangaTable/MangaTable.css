@@ -1,0 +1,219 @@
+.admin-row1 .table-user {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    max-height: 670px;
+    width: 100%;
+  }
+  
+  .admin-row1 .table-user h3.ant-typography {
+    background: transparent;
+  }
+  
+  .admin-row1 .table-user .user-table td.ant-table-cell,
+  .admin-row1 .table-user .user-table th.ant-table-cell {
+    padding: 10px 15px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .admin-row1 .table-user .user-table {
+    max-height: 670px;
+    height: fit-content;
+    overflow: auto;
+    background: var(--color-theme-02);
+  }
+  
+  .admin-row1 .table-user .user-table .ant-table-pagination.ant-pagination {
+    margin: 15px 10px 5px 0;
+  }
+  
+  /*  */
+  .admin-row1 .table-manga {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    max-height: 650px;
+    width: 100%;
+  }
+  
+  .admin-row1 .table-manga h3.ant-typography {
+    background: transparent;
+  }
+  
+  .admin-row1 .table-manga .manga-table {
+    max-height: 650px;
+    height: fit-content;
+    overflow: auto;
+    background-color: var(--color-theme-02);
+  }
+  
+  .admin-row1 .table-manga .manga-table .ant-table-pagination.ant-pagination {
+    margin: 15px 10px 5px 0;
+  }
+  
+  .admin-row1 .table-manga .manga-table td.ant-table-cell,
+  .admin-row1 .table-manga .manga-table th.ant-table-cell {
+    padding: 10px 15px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .ant-image-mask {
+    color: transparent;
+  }
+  
+  .ant-image-mask:hover {
+    opacity: 0.5;
+  }
+  
+  /*  */
+  .admin-row1 .table-trans-gr {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    max-height: 650px;
+    width: 100%;
+  }
+  
+  .admin-row1 .table-trans-gr h3.ant-typography {
+    background: transparent;
+  }
+  
+  .admin-row1 .table-trans-gr .trans-gr-table {
+    max-height: 650px;
+    overflow: auto;
+    background: var(--color-theme-02);
+  }
+  
+  .admin-row1
+    .table-trans-gr
+    .trans-gr-table
+    .ant-table-pagination.ant-pagination {
+    margin: 12px 10px 8px 0;
+  }
+  
+  .admin-row1 .table-trans-gr .trans-gr-table td.ant-table-cell,
+  .admin-row1 .table-trans-gr .trans-gr-table th.ant-table-cell {
+    padding: 10px 15px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /*  */
+  .admin-row1 .table-admin {
+    margin: 0 auto;
+    padding-bottom: 50px;
+    max-height: 500px;
+    width: 100%;
+  }
+  
+  .admin-row1 .table-admin .admin-table td.ant-table-cell,
+  .admin-row1 .table-admin .admin-table th.ant-table-cell {
+    padding: 10px 15px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .admin-row1 .table-admin .admin-table {
+    max-height: 350px;
+    overflow: auto;
+    background: var(--color-theme-02);
+  }
+  
+  .table-btn-loading,
+  .table-btn-loading:before {
+    margin-left: 5px;
+    margin-top: -3px;
+    color: grey;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+  
+  .table-btn-loading span.ant-btn-loading-icon {
+    font-size: 22px;
+  }
+  
+  /*  */
+  td.name-col,
+  td.views-col,
+  td.projects-col,
+  td.role-col {
+    padding-top: 15px !important;
+    padding-bottom: 0 !important;
+  }
+  /* /////////////////////////// */
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+  }
+  
+  @media only screen and (min-width: 375px) and (max-width: 414px) {
+    .admin-row1 .table-user .user-table td.ant-table-cell,
+    .admin-row1 .table-user .user-table th.ant-table-cell {
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  
+    .admin-row1 .table-admin .admin-table td.ant-table-cell,
+    .admin-row1 .table-admin .admin-table th.ant-table-cell {
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  
+    .admin-row1 .table-manga .admin-manga td.ant-table-cell,
+    .admin-row1 .table-manga .admin-manga th.ant-table-cell {
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  
+    .admin-row1 .table-user .user-table,
+    .admin-row1 .table-admin .admin-table {
+      max-width: 374px;
+    }
+  
+    .admin-row1 .table-admin,
+    .admin-row1 .table-user {
+      margin: 40px 0;
+      margin-left: 5px;
+    }
+  }
+  
+  .user-table::-webkit-scrollbar,
+  .manga-table::-webkit-scrollbar,
+  .trans-gr-table::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .user-table::-webkit-scrollbar-track,
+  .manga-table::-webkit-scrollbar-track,
+  .trans-gr-table::-webkit-scrollbar-track {
+    background: RGB(241, 241, 241);
+  }
+  
+  .user-table::-webkit-scrollbar-thumb,
+  .manga-table::-webkit-scrollbar-thumb,
+  .trans-gr-table::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background: RGB(175, 175, 175);
+  }
+  
+  .user-table::-webkit-scrollbar-thumb:hover,
+  .manga-table::-webkit-scrollbar-thumb:hover,
+  .trans-gr-table::-webkit-scrollbar-thumb:hover {
+    background: RGB(150, 150, 150);
+  }

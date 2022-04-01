@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import chapterApi from "../../api/apis/chapterApi";
 import mangaApi from "../../api/apis/mangaApi";
 import Manga from "./Manga";
 
@@ -17,10 +18,10 @@ export default function MangaService() {
       const mangaObj = response.comic;
 
       setManga(mangaObj);
+      
       return;
     } catch (error) {}
   };
-
   const getChapters = async () => {
     try {
       const response = await mangaApi.getMangaChapters();
@@ -40,6 +41,7 @@ export default function MangaService() {
       return;
     } catch (error) {}
   };
+
   useEffect(() => {
     getManga();
     getChapters();

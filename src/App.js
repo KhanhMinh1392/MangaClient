@@ -3,6 +3,7 @@ import "antd/dist/antd.css";
 import { Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import BackUp from "./component/BackUp/BackUp";
 import Carousels from "./component/Carousels/Horizontal/Horizontal";
 import FooterContainer from "./component/Footer/FooterContainer";
 import LoadingPage from "./component/Loading/LoadingPage/LoadingPage";
@@ -43,6 +44,7 @@ function App() {
                 Routing()
               }
               </div>
+              <BackUp zIndex="99" />
           </Content>
           <Footer className="footer">
             <FooterContainer />

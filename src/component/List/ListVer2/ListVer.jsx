@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const { Meta } = Card;
 
-export default function ListVer() {
+export default function ListVer({dataManga}) {
   const data = [
     {
       id: 1,
@@ -83,8 +83,8 @@ export default function ListVer() {
               >
                 <Meta
                   title={
-                    <Tooltip placement="bottom" title={items.name}>
-                      <Typography.Text>{items.name}</Typography.Text>
+                    <Tooltip placement="bottom" title={items.name_comic}>
+                      <Typography.Text>{items.name_comic}</Typography.Text>
                     </Tooltip>
                   }
                   description="Chương 11"
