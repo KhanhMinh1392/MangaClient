@@ -4,6 +4,7 @@ import React, { memo, useState } from "react";
 
 function SignUp({ setShowSignUp , handleSignUp }) {
   const [isModalVisible, setIsModalVisible] = useState(true);
+  
   const [username,setUsername] = useState('');
   const [password,setPassword] = useState('');
   const [email,setEmail] = useState('');

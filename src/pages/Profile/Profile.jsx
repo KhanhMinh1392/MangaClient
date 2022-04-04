@@ -2,6 +2,7 @@ import { Tabs, Typography } from "antd";
 import dayjs from "dayjs";
 import React from "react";
 import ListInfinite from "../../component/List/ListInfinite/ListInfinite";
+import GenresTableService from "../../component/Table/GenresTable/GenresTableService";
 import MangaTableService from "../../component/Table/MangaTable/MangaTableService";
 import UserTableService from "../../component/Table/UserTable/UserTableService";
 import "./Profile.css";
@@ -31,7 +32,7 @@ export default function Profile({ info }) {
                 <MangaTableService />
               </TabPane>
               <TabPane tab="List Genres" key="2">
-                Content of Tab Pane 2
+                <GenresTableService />
               </TabPane>
               <TabPane tab="List User" key="3">
                 <UserTableService />

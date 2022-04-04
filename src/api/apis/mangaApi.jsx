@@ -17,7 +17,5 @@ const mangaApi = {
         const url = '/cate/getGenres';
         return axiosClient.get(url);
     }
-    
-    
 }
 export default mangaApi

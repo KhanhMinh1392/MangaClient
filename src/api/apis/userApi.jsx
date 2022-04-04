@@ -8,6 +8,10 @@ const userApi = {
     getAllUser: () => {
         const url = "/users/getUser";
         return axiosClient.get(url);
+    },
+    getAllGenres: () => {
+        const url = "/cate/getGenres";
+        return axiosClient.get(url);
     }
 }
 export default userApi

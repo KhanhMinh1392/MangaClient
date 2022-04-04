@@ -2,10 +2,9 @@ import { EyeOutlined } from "@ant-design/icons";
 import { Button, Col, Divider, Image, Rate, Row, Tag, Typography } from "antd";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import BackUp from "../../component/BackUp/BackUp";
 import FadingText from "../../component/FadingText/FadingText";
 import ListChapter from "../../component/List/ListChapter/ListChapter";
-import ListVer from "../../component/List/ListVer2/ListVer";
-import BackUp from "../../component/BackUp/BackUp";
 import "./Manga.css";
 export default function Manga({ manga, chapter, genre }) {
   

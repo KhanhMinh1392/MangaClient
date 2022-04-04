@@ -1,3 +1,6 @@
-.btn-genres{
-    margin-left: 10px;
+
+.tag-name{
+    font-size: 15px;
+    min-width: 85px;
+    text-align: center;
 }
