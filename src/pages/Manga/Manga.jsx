@@ -1,13 +1,14 @@
 import { EyeOutlined } from "@ant-design/icons";
 import { Button, Col, Divider, Image, Rate, Row, Tag, Typography } from "antd";
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import BackUp from "../../component/BackUp/BackUp";
 import FadingText from "../../component/FadingText/FadingText";
 import ListChapter from "../../component/List/ListChapter/ListChapter";
+import { message_error } from "../../component/Notification/Message";
 import "./Manga.css";
-export default function Manga({ manga, chapter, genre }) {
-  
+export default function Manga({ manga, chapter, genre , postComicLibrary , updateComicLibrary}) {
+  const { id } = useParams();
   const [chapterId01, setChapterId01] = useState("");
 
   useEffect(()=> {
@@ -15,6 +16,17 @@ export default function Manga({ manga, chapter, genre }) {
       setChapterId01(chapter[0]._id);
     }
   },[chapter])
+
+  const handleAddLibra = () => {
+    if(localStorage.getItem("token") === null) {
+      message_error("You must sign in to add library",3);
+    }
+    if(localStorage.getItem("id_libra")) {
+      updateComicLibrary(localStorage.getItem("id_libra"), id);
+    } else {
+      postComicLibrary(localStorage.getItem("id") , id);
+    }
+  }
 
   return (
     <>
@@ -50,7 +62,7 @@ export default function Manga({ manga, chapter, genre }) {
                     Translated by: {manga.translateBy}
                   </div>
                   <div className="genre">
-                    Thể loại:
+                    Genres:
                     {
                     genre.map((item, i) => (
                       <div className="tag" key={i}>
@@ -61,7 +73,7 @@ export default function Manga({ manga, chapter, genre }) {
                     ))}
                   </div>
                   <div className="status">
-                    <Typography.Text>{manga.status}</Typography.Text>
+                    Status: {manga.status}
                   </div>
 
                   <div className="manga-views">
@@ -75,7 +87,7 @@ export default function Manga({ manga, chapter, genre }) {
                       </NavLink>
                     </Button>
 
-                    <Button className="btn-add-favorite">Add to Library</Button>
+                    <Button className="btn-add-favorite" onClick={() => handleAddLibra()}>Add to Library</Button>
                   </div>
                 </div>
               </Col>

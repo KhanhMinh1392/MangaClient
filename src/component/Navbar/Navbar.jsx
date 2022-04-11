@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import SignInService from "../../pages/SignIn/SignInService";
 import SignUpService from "../../pages/SignUp/SignUpService";
 import SearchNavBar from "../Feature/SearchNavBar";
+import { message_success } from "../Notification/Message";
 import "./Navbar.css";
 
 const { Search } = Input;
@@ -13,17 +14,13 @@ const Option = AutoComplete.Option;
 function Navbar({ manga }) {
   const [show, setShow] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  // const [search, setSearch] = useState();
   const [token, setToken] = useState("");
-
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
     }
   }, [localStorage.getItem("token")]);
-
-  
 
   const renderAccountDropDown = () => (
     <>
@@ -34,9 +31,11 @@ function Navbar({ manga }) {
         <NavLink
           to="/"
           onClick={() => {
-            localStorage.removeItem("token");
-            localStorage.removeItem("id");
+            // localStorage.removeItem("token");
+            // localStorage.removeItem("id");
+            localStorage.clear();
             setToken("");
+            message_success("Log out success")
           }}
         >
           Log out
@@ -77,6 +76,7 @@ function Navbar({ manga }) {
                   style={{ background: "transparent" }}
                 >
                   <SubMenu
+                    key={1}
                     title="Account"
                     popupClassName="list-cccount-dropdown"
                     children={renderAccountDropDown()}

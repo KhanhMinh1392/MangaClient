@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import authApi from "../../api/apis/authApi";
+import userApi from "../../api/apis/userApi";
 import {
   message_error,
-  message_success,
+  message_success
 } from "../../component/Notification/Message";
 import SignIn from "./SignIn";
 export default function SignInService({ setShow }) {
@@ -23,6 +24,12 @@ export default function SignInService({ setShow }) {
         message_success(response.message);
         localStorage.setItem("id", response.id_user);
         localStorage.setItem("token", response.token);
+        //Library
+        const listLibrary = await userApi.getListLibrary();
+        const arrList1 = listLibrary.data;
+  
+        const resultList = arrList1.filter((value) => value.id_user === response.id_user);
+        localStorage.setItem('id_libra',resultList[0]._id);
 
         setShow(false);
         return;

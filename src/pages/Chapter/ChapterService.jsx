@@ -29,9 +29,9 @@ export default function ChapterService() {
   const getChapterInfo = async () => {
     try {
       const getInfo = await chapterApi.getChapterInfo(idChapter);
-      setInfoChapter(getInfo.chapters);
+      setInfoChapter(getInfo.data);
     } catch (error) {
-      
+      console.error(error);
     }
   }
 

@@ -16,6 +16,18 @@ const mangaApi = {
     getGenres: ()=> {
         const url = '/cate/getGenres';
         return axiosClient.get(url);
+    },
+    getFilterManga: (params) => {
+        const url = `/cate/findCate?search=${params.name_cate}`;
+        return axiosClient.get(url);
+    },
+    postComicLibrary: (params) => {
+        const url = `/library/addComicLib`;
+        return axiosClient.post(url, params);
+    },
+    updateComicLibrary: (id,params) => {
+        const url = `/library/updateLibrary/${id}`;
+        return axiosClient.patch(url, params);
     }
 }
 export default mangaApi

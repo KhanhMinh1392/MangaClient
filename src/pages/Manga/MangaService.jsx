@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import chapterApi from "../../api/apis/chapterApi";
 import mangaApi from "../../api/apis/mangaApi";
+import { message_success } from "../../component/Notification/Message";
 import Manga from "./Manga";
 
 export default function MangaService() {
@@ -9,6 +9,7 @@ export default function MangaService() {
   const [manga, setManga] = useState([]);
   const [chapter, setChapter] = useState([]);
   const [genre, setGenre] = useState([]);
+
   const getManga = async () => {
     try {
       const params = {
@@ -18,7 +19,7 @@ export default function MangaService() {
       const mangaObj = response.comic;
 
       setManga(mangaObj);
-      
+
       return;
     } catch (error) {}
   };
@@ -42,11 +43,53 @@ export default function MangaService() {
     } catch (error) {}
   };
 
+  const postComicLibrary = async (id_user, id_comic) => {
+    if (id_user && id_comic) {
+      try {
+        const data = {
+          id_user: id_user,
+          comic: [id_comic],
+        };
+        const response = await mangaApi.postComicLibrary(data);
+        localStorage.setItem('id_libra',response.library._id);
+        message_success("Added to library", 3);
+        return;
+      } catch (error) {}
+    }
+  };
+
+  const updateComicLibrary = async (id_libra, id_comic) => {
+    if (id_libra && id_comic) {
+      try {
+        const data = {
+          comic: [id_comic],
+        };
+        const response = await mangaApi.updateComicLibrary(id_libra, data);
+        message_success("Added to library", 3);
+        return;
+      } catch (error) {}
+    }
+  };
+
   useEffect(() => {
     getManga();
     getChapters();
     getGenres();
+    postComicLibrary();
+    updateComicLibrary();
   }, []);
 
-  return <Manga manga={manga} chapter={chapter} genre={genre} />;
+  return (
+    <Manga
+      manga={manga}
+      chapter={chapter}
+      genre={genre}
+      postComicLibrary={(id_user, id_comic) =>
+        postComicLibrary(id_user, id_comic)
+      }
+      updateComicLibrary={(id_libra, id_comic) =>
+        updateComicLibrary(id_libra, id_comic)
+      }
+    />
+  );
 }

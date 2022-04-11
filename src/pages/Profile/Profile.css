@@ -1,3 +1,21 @@
 .profile{
     margin: 20px;
 }
+.dot{
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 50%;
+}
+.role{
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+}
+.role-account{
+    margin-left: 5px;
+}
+.line-bottom{
+    border-bottom: 2px solid #1890ff;
+    padding-bottom: 5px;
+}

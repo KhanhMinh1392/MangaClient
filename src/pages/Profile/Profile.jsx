@@ -1,7 +1,7 @@
 import { Tabs, Typography } from "antd";
 import dayjs from "dayjs";
 import React from "react";
-import ListInfinite from "../../component/List/ListInfinite/ListInfinite";
+import ListHorizon from "../../component/List/ListHorizon/ListHorizon";
 import GenresTableService from "../../component/Table/GenresTable/GenresTableService";
 import MangaTableService from "../../component/Table/MangaTable/MangaTableService";
 import UserTableService from "../../component/Table/UserTable/UserTableService";
@@ -11,15 +11,27 @@ const { Title } = Typography;
 
 const { TabPane } = Tabs;
 
-export default function Profile({ info }) {
+export default function Profile({ info, library }) {
   return (
     <div className="profile">
       <Title level={2}>Account Information</Title>
       <Tabs tabPosition={"left"}>
         <TabPane tab="Profile" key="1">
+          <Title level={2} className="line-bottom">
+            Information
+          </Title>
           <Title level={4}>Account name: {info.name} </Title>
           <Title level={5}>UserID: {info._id} </Title>
-          <Title level={5}>Role: {info.role} </Title>
+          <Title
+            level={5}
+            style={{ display: "inline-flex", alignItems: "center" }}
+          >
+            Role:
+            <div className="role">
+              <div className="dot"></div>
+              <div className="role-account">{info.role} </div>
+            </div>
+          </Title>
           <Title level={5}>
             CreatedAt: {dayjs(info.createdAt).format("DD/MM/YYYY")}{" "}
           </Title>
@@ -42,10 +54,15 @@ export default function Profile({ info }) {
         ) : (
           <>
             <TabPane tab="Library" key="2">
-              Content of Tab 3
+              <Title level={2} className="line-bottom">
+                Libraries
+              </Title>
+              <ListHorizon library={library} />
             </TabPane>
             <TabPane tab="History" key="3">
-              <ListInfinite />
+              <Title level={2} className="line-bottom">
+                Histories
+              </Title>
             </TabPane>
           </>
         )}

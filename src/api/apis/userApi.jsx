@@ -12,6 +12,10 @@ const userApi = {
     getAllGenres: () => {
         const url = "/cate/getGenres";
         return axiosClient.get(url);
+    },
+    getListLibrary: () => {
+        const url = "/library/allLibrary";
+        return axiosClient.get(url);
     }
 }
 export default userApi
