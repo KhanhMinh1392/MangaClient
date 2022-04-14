@@ -16,6 +16,10 @@ const userApi = {
     getListLibrary: () => {
         const url = "/library/allLibrary";
         return axiosClient.get(url);
+    },
+    deleteLibrary: (params) => {
+        const url = `/library/removeComicLib/${params.id_library}&${params.id_comic}`;
+        return axiosClient.delete(url);
     }
 }
 export default userApi

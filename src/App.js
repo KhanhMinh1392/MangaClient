@@ -34,17 +34,13 @@ function App() {
     <Suspense fallback={<LoadingPage />}>
       <Router>
         <Layout className="mainLayout" style={{ minHeight: "100vh" }}>
-          <Header style={{ position: "fixed", zIndex: 1, width: "100%" }} >
+          <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
             <NavbarService />
-          </Header> 
+          </Header>
           <Content>
             <Carousels />
-            <div style={{ padding: "0 50px" }}>
-              {
-                Routing()
-              }
-              </div>
-              <BackUp zIndex="99" />
+            <div style={{ padding: "0 50px" }}>{Routing()}</div>
+            <BackUp zIndex="99" />
           </Content>
           <Footer className="footer">
             <FooterContainer />

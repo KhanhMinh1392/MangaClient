@@ -24,14 +24,13 @@ export default function SignInService({ setShow }) {
         message_success(response.message);
         localStorage.setItem("id", response.id_user);
         localStorage.setItem("token", response.token);
+        setShow(false);
         //Library
         const listLibrary = await userApi.getListLibrary();
         const arrList1 = listLibrary.data;
   
         const resultList = arrList1.filter((value) => value.id_user === response.id_user);
-        localStorage.setItem('id_libra',resultList[0]._id);
-
-        setShow(false);
+        localStorage.setItem('id_libra',resultList[0]._id);        
         return;
         
       } catch (error) {

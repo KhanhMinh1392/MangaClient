@@ -1,6 +1,7 @@
 .list-comics{
     margin-top: 20px;
     padding: 10px;
+    width: 100%;
 }
 .ant-card-cover img{
     height: 232px;

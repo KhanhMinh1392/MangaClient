@@ -9,6 +9,8 @@ export default function MangaService() {
   const [manga, setManga] = useState([]);
   const [chapter, setChapter] = useState([]);
   const [genre, setGenre] = useState([]);
+  const [isFollowed, setIsFollowed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getManga = async () => {
     try {
@@ -19,7 +21,7 @@ export default function MangaService() {
       const mangaObj = response.comic;
 
       setManga(mangaObj);
-
+      // console.log(response.comic.categories);
       return;
     } catch (error) {}
   };
@@ -45,14 +47,17 @@ export default function MangaService() {
 
   const postComicLibrary = async (id_user, id_comic) => {
     if (id_user && id_comic) {
+      setIsLoading(true)
       try {
         const data = {
           id_user: id_user,
           comic: [id_comic],
         };
         const response = await mangaApi.postComicLibrary(data);
-        localStorage.setItem('id_libra',response.library._id);
-        message_success("Added to library", 3);
+        localStorage.setItem("id_libra", response.library._id);
+        message_success("Added to your library", 3);
+        setIsFollowed(false);
+        setIsLoading(false);
         return;
       } catch (error) {}
     }
@@ -65,7 +70,9 @@ export default function MangaService() {
           comic: [id_comic],
         };
         const response = await mangaApi.updateComicLibrary(id_libra, data);
-        message_success("Added to library", 3);
+        message_success("Added to your library", 3);
+        setIsFollowed(false);
+        setIsLoading(false);
         return;
       } catch (error) {}
     }
@@ -90,6 +97,8 @@ export default function MangaService() {
       updateComicLibrary={(id_libra, id_comic) =>
         updateComicLibrary(id_libra, id_comic)
       }
+      isLoading={isLoading}
+      isFollowed={isFollowed}
     />
   );
 }

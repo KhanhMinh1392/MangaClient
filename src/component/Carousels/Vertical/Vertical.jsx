@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Slider from "react-slick";
-import { Card, Typography, Image, Col, Row, Tooltip } from "antd";
-import "./Vertical.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Card, Col, Image, Row, Tooltip, Typography } from "antd";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "./Vertical.css";
 
 const { Meta } = Card;
 

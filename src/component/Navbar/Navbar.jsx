@@ -31,8 +31,6 @@ function Navbar({ manga }) {
         <NavLink
           to="/"
           onClick={() => {
-            // localStorage.removeItem("token");
-            // localStorage.removeItem("id");
             localStorage.clear();
             setToken("");
             message_success("Log out success")

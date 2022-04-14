@@ -11,7 +11,7 @@ const { Title } = Typography;
 
 const { TabPane } = Tabs;
 
-export default function Profile({ info, library }) {
+export default function Profile({ info, library, deleteLibrary }) {
   return (
     <div className="profile">
       <Title level={2}>Account Information</Title>
@@ -57,7 +57,7 @@ export default function Profile({ info, library }) {
               <Title level={2} className="line-bottom">
                 Libraries
               </Title>
-              <ListHorizon library={library} />
+              <ListHorizon library={library} deleteLibrary={(id_library,id_comic)=> deleteLibrary(id_library,id_comic)} />
             </TabPane>
             <TabPane tab="History" key="3">
               <Title level={2} className="line-bottom">

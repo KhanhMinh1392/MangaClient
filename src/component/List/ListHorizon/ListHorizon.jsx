@@ -3,16 +3,20 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./ListHorizon.css";
 
-export default function ListHorizon({ library }) {
+export default function ListHorizon({ library, deleteLibrary }) {
+  const data= library[0].comic;
+  const handelDeleteLibrary = (id) => {
+    deleteLibrary(library[0]._id,id)
+  }
   return (
     <List
       itemLayout="horizontal"
-      dataSource={library}
+      dataSource={data}
       renderItem={(item) => (
         <List.Item
           actions={[
             <NavLink to={`/manga/${item._id}`} >Read</NavLink>,
-            <a key="list-loadmore-more">Delete</a>,
+            <a key="list-loadmore-more" onClick={() => handelDeleteLibrary(item._id)}>Delete</a>,
           ]}
         >
           <div className="list">

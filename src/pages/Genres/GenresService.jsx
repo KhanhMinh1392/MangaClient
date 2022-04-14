@@ -4,7 +4,6 @@ import Genres from "./Genres";
 export default function GenresService() {
   const [manga, setManga] = useState([]);
   const [genres, setGenres] = useState([]);
-  const [filter, setFilter] = useState([]);
 
   const getGenres = async () => {
     try {
@@ -30,9 +29,8 @@ export default function GenresService() {
           name_cate: param
         }
         const response = await mangaApi.getFilterManga(data);
-        const arrManga = response.category[0].comic_type;
-        setFilter(arrManga);
-        console.log(arrManga);
+        const arrManga = response.category.comic_type;
+        setManga(arrManga);
       } catch (error) {
         console.error(error); 
       }

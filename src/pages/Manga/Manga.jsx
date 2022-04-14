@@ -6,28 +6,41 @@ import BackUp from "../../component/BackUp/BackUp";
 import FadingText from "../../component/FadingText/FadingText";
 import ListChapter from "../../component/List/ListChapter/ListChapter";
 import { message_error } from "../../component/Notification/Message";
+// import { useSelector } from "react-redux";
 import "./Manga.css";
-export default function Manga({ manga, chapter, genre , postComicLibrary , updateComicLibrary}) {
+export default function Manga({
+  manga,
+  chapter,
+  genre,
+  postComicLibrary,
+  updateComicLibrary,
+}) {
   const { id } = useParams();
   const [chapterId01, setChapterId01] = useState("");
+ 
+  // const userState = useSelector((state) => state.userState);
 
-  useEffect(()=> {
+  useEffect(() => {
     if (chapter[0]) {
       setChapterId01(chapter[0]._id);
     }
-  },[chapter])
+  }, [chapter]);
 
   const handleAddLibra = () => {
-    if(localStorage.getItem("token") === null) {
-      message_error("You must sign in to add library",3);
+    if (localStorage.getItem("token") === null) {
+      message_error("You must sign in to add library", 3);
     }
-    if(localStorage.getItem("id_libra")) {
+    if (localStorage.getItem("id_libra")) {
       updateComicLibrary(localStorage.getItem("id_libra"), id);
     } else {
-      postComicLibrary(localStorage.getItem("id") , id);
+      postComicLibrary(localStorage.getItem("id"), id);
     }
-  }
-
+    // userState[0]
+    //   ? isFollowed
+    //     ? updateComicLibrary(localStorage.getItem("id_libra"), manga._id)
+    //     : postComicLibrary(localStorage.getItem("id"),manga._id)
+    //   : message_error("You have to login first!");
+  };
   return (
     <>
       <div className="manga" key={manga._id}>
@@ -64,20 +77,20 @@ export default function Manga({ manga, chapter, genre , postComicLibrary , updat
                   <div className="genre">
                     Genres:
                     {
-                    genre.map((item, i) => (
+                      // console.log(genres)
+                      genre.map((item, i) => (
                       <div className="tag" key={i}>
-                        <Tag color={item.color} >
-                          {item.name_cate}
-                        </Tag>
+                        <Tag color={item.color}>{item.name_cate}</Tag>
                       </div>
-                    ))}
+                    ))
+                    }
                   </div>
-                  <div className="status">
-                    Status: {manga.status}
-                  </div>
+                  <div className="status">Status: {manga.status}</div>
 
                   <div className="manga-views">
-                    <Typography.Text><EyeOutlined /> {manga.views} </Typography.Text>
+                    <Typography.Text>
+                      <EyeOutlined /> {manga.views}{" "}
+                    </Typography.Text>
                   </div>
 
                   <div className="interact">
@@ -87,7 +100,12 @@ export default function Manga({ manga, chapter, genre , postComicLibrary , updat
                       </NavLink>
                     </Button>
 
-                    <Button className="btn-add-favorite" onClick={() => handleAddLibra()}>Add to Library</Button>
+                    <Button
+                      className="btn-add-favorite"
+                      onClick={() => handleAddLibra()}
+                    >
+                      Add to library
+                    </Button>
                   </div>
                 </div>
               </Col>
